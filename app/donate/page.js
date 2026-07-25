@@ -1,20 +1,10 @@
-'use client'
-import { useState } from 'react'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import DonationForm from '@/components/DonationForm'
+import DonateClient from '../_client/DonateClient'
+
+export const metadata = {
+  title: 'Donate — Xohai',
+  description: 'Donate items or funds to support emergency relief efforts, with the option to request pickup.',
+}
 
 export default function DonatePage() {
-  const [refreshKey, setRefreshKey] = useState(0)
-
-  return (
-    <main className="min-h-screen flex flex-col bg-[--background]">
-      <Header />
-      <div className="max-w-5xl mx-auto px-5 py-12 w-full flex-1">
-        <h1 className="font-serif text-2xl mb-6">Donate</h1>
-        <DonationForm onSubmitted={() => setRefreshKey(k => k + 1)} />
-      </div>
-      <Footer />
-    </main>
-  )
+  return <DonateClient />
 }

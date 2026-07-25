@@ -1,20 +1,10 @@
-'use client'
-import { useState } from 'react'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import SOSForm from '@/components/SOSForm'
+import RequestHelpClient from '../_client/RequestHelpClient'
+
+export const metadata = {
+  title: 'Request help — Xohai',
+  description: 'Submit an emergency request. Report your location and what kind of assistance you need — rescue, food, shelter, or medical.',
+}
 
 export default function RequestHelpPage() {
-  const [refreshKey, setRefreshKey] = useState(0)
-
-  return (
-    <main className="min-h-screen flex flex-col bg-[--background]">
-      <Header />
-      <div className="max-w-5xl mx-auto px-5 py-12 w-full flex-1">
-        <h1 className="font-serif text-2xl mb-6">Request help</h1>
-        <SOSForm onSubmitted={() => setRefreshKey(k => k + 1)} />
-      </div>
-      <Footer />
-    </main>
-  )
+  return <RequestHelpClient />
 }

@@ -2,6 +2,11 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { BRAND_NAME } from '@/lib/i18nStrings'
 
+export const metadata = {
+  title: 'Privacy policy — Xohai',
+  description: 'How Xohai collects, uses, and protects your information.',
+}
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[--background]">

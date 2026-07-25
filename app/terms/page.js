@@ -2,6 +2,11 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { BRAND_NAME } from '@/lib/i18nStrings'
 
+export const metadata = {
+  title: 'Terms of service — Xohai',
+  description: 'Terms governing the use of the Xohai platform.',
+}
+
 export default function TermsPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[--background]">
