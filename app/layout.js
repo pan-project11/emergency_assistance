@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Flood Emergency Assistance",
-  description: "Report flood emergencies and coordinate volunteer response",
+  title: "Emergency Assistance",
+  description: "Report emergencies and coordinate volunteer response",
 };
 
 export default function RootLayout({ children }) {
