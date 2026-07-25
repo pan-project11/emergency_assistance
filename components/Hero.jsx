@@ -8,15 +8,15 @@ export default function Hero() {
   const { strings } = useLanguage()
   const [counts, setCounts] = useState({ total: 0, pending: 0, responding: 0, resolved: 0 })
 
-  useEffect(() => {
+  useEffect(function () {
     async function fetchCounts() {
-      const { data } = await supabase.from('sos_requests').select('status')
-      const rows = data || []
+      const result = await supabase.from('sos_requests').select('status')
+      const rows = result.data || []
       setCounts({
         total: rows.length,
-        pending: rows.filter(r => r.status === 'pending').length,
-        responding: rows.filter(r => r.status === 'responding').length,
-        resolved: rows.filter(r => r.status === 'resolved').length
+        pending: rows.filter(function (r) { return r.status === 'pending' }).length,
+        responding: rows.filter(function (r) { return r.status === 'responding' }).length,
+        resolved: rows.filter(function (r) { return r.status === 'resolved' }).length
       })
     }
     fetchCounts()
@@ -25,22 +25,13 @@ export default function Hero() {
   return (
     <div className="bg-navy-900">
       <div className="max-w-5xl mx-auto px-5 pt-10 pb-8">
-        <span className="text-xs tracking-widest text-red-300 font-medium uppercase">
-          {strings.heroEyebrow}
-        </span>
-        <h1 className="font-serif text-white text-3xl sm:text-4xl leading-tight mt-3 mb-3 max-w-xl">
-          {strings.heroHeadline}
-        </h1>
-        <p className="text-white/65 text-sm max-w-md mb-6">
-          {strings.heroSubhead}
-        </p>
-        <div className="flex gap-3">
-          <Link href="/request-help" className="bg-crimson-600 text-white text-sm font-semibold px-5 py-3 rounded">
-            🆘 {strings.requestHelpBtn}
-          </Link>
-          <Link href="/donate" className="border border-white/40 text-white text-sm font-semibold px-5 py-3 rounded">
-            {strings.wantToHelpBtn}
-          </Link>
+        <span className="text-xs tracking-widest text-red-300 font-medium uppercase">{strings.heroEyebrow}</span>
+        <h1 className="font-serif text-white text-3xl sm:text-4xl leading-tight mt-3 mb-3 max-w-xl">{strings.heroHeadline}</h1>
+        <p className="text-white/65 text-sm max-w-md mb-6">{strings.heroSubhead}</p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/request-help" className="bg-crimson-600 text-white text-sm font-semibold px-5 py-3 rounded">🆘 {strings.requestHelpBtn}</Link>
+          <Link href="/volunteer" className="bg-forest-700 text-white text-sm font-semibold px-5 py-3 rounded">🤝 {strings.volunteerBtn}</Link>
+          <Link href="/donate" className="border border-white/40 text-white text-sm font-semibold px-5 py-3 rounded">{strings.wantToHelpBtn}</Link>
         </div>
       </div>
 
